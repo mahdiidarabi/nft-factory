@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "lib": ["es2015", "es5", "dom"],
+        "allowSyntheticDefaultImports": true,
+        "target": "es6",
+        "noImplicitAny": false,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "build",
+        "baseUrl": ".",
+        "resolveJsonModule": true
+    },
+    "include": ["src/**/*", "index.ts"]
+}
