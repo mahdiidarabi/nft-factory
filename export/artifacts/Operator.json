@@ -1554,12 +1554,12 @@
   "storageLayout": {
     "storage": [
       {
-        "astId": 3520,
+        "astId": 3485,
         "contract": "contracts/Role/Operator.sol:Operator",
         "label": "_operators",
         "offset": 0,
         "slot": "0",
-        "type": "t_struct(Role)3611_storage"
+        "type": "t_struct(Role)3576_storage"
       }
     ],
     "types": {
@@ -1580,12 +1580,12 @@
         "numberOfBytes": "32",
         "value": "t_bool"
       },
-      "t_struct(Role)3611_storage": {
+      "t_struct(Role)3576_storage": {
         "encoding": "inplace",
         "label": "struct Roles.Role",
         "members": [
           {
-            "astId": 3610,
+            "astId": 3575,
             "contract": "contracts/Role/Operator.sol:Operator",
             "label": "bearer",
             "offset": 0,

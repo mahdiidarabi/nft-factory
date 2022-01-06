@@ -13336,12 +13336,12 @@
         "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
       },
       {
-        "astId": 3520,
+        "astId": 3485,
         "contract": "contracts/BumperSkyLoungePassNFT.sol:BumperSkyLoungePassNFT",
         "label": "_operators",
         "offset": 0,
         "slot": "7",
-        "type": "t_struct(Role)3611_storage"
+        "type": "t_struct(Role)3576_storage"
       },
       {
         "astId": 2853,
@@ -13411,12 +13411,12 @@
         ],
         "numberOfBytes": "32"
       },
-      "t_struct(Role)3611_storage": {
+      "t_struct(Role)3576_storage": {
         "encoding": "inplace",
         "label": "struct Roles.Role",
         "members": [
           {
-            "astId": 3610,
+            "astId": 3575,
             "contract": "contracts/BumperSkyLoungePassNFT.sol:BumperSkyLoungePassNFT",
             "label": "bearer",
             "offset": 0,
