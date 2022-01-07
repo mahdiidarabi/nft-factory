@@ -1,10 +1,10 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/BronzeCommunityNFT.sol": {
-      "lastModificationDate": 1641487082468,
-      "contentHash": "f9b122c46cc8119133255cc63514fcd6",
-      "sourceName": "contracts/BronzeCommunityNFT.sol",
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionURIStorage.sol": {
+      "lastModificationDate": 1641491600000,
+      "contentHash": "ef500d7149f8d133807468a716b0c59e",
+      "sourceName": "contracts/NFT/NFTCollectionURIStorage.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -36,24 +36,23 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
         "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/utils/Context.sol",
         "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./Role/Operator.sol"
+        "@openzeppelin/contracts/utils/math/SafeMath.sol"
       ],
       "versionPragmas": [
         "^0.8.3"
       ],
       "artifacts": [
-        "BronzeCommunityNFT"
+        "NFTCollectionURIStorage"
       ]
     },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1641488747412,
-      "contentHash": "a4f6dccf3f15b6844e357f737a572388",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
+      "lastModificationDate": 1641488781716,
+      "contentHash": "94da923c22e9773af388607307182c80",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -85,19 +84,13 @@
         }
       },
       "imports": [
-        "./IERC721.sol",
-        "./IERC721Receiver.sol",
-        "./extensions/IERC721Metadata.sol",
-        "../../utils/Address.sol",
-        "../../utils/Context.sol",
-        "../../utils/Strings.sol",
-        "../../utils/introspection/ERC165.sol"
+        "../ERC721.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC721"
+        "ERC721URIStorage"
       ]
     },
     "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/access/Ownable.sol": {
@@ -270,10 +263,10 @@
         "SafeMath"
       ]
     },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Role/Operator.sol": {
-      "lastModificationDate": 1641487082476,
-      "contentHash": "a6551cfd127e1cf31f13006561f9f0b9",
-      "sourceName": "contracts/Role/Operator.sol",
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
+      "lastModificationDate": 1641488747412,
+      "contentHash": "a4f6dccf3f15b6844e357f737a572388",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -305,14 +298,19 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/utils/Context.sol",
-        "./Roles.sol"
+        "./IERC721.sol",
+        "./IERC721Receiver.sol",
+        "./extensions/IERC721Metadata.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/Strings.sol",
+        "../../utils/introspection/ERC165.sol"
       ],
       "versionPragmas": [
-        "0.8.3"
+        "^0.8.0"
       ],
       "artifacts": [
-        "Operator"
+        "ERC721"
       ]
     },
     "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
@@ -573,10 +571,10 @@
         "IERC165"
       ]
     },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Role/Roles.sol": {
-      "lastModificationDate": 1641487082480,
-      "contentHash": "e54a292a891bd2fc9c99b6324aa98f57",
-      "sourceName": "contracts/Role/Roles.sol",
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTFactory.sol": {
+      "lastModificationDate": 1641527493442,
+      "contentHash": "c4efccb9a7172cd9cbc7e4a877a33bf7",
+      "sourceName": "contracts/NFT/NFTFactory.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -607,150 +605,160 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "./NFTCollectionWithBaseURI.sol",
+        "./NFTCollectionURIStoragePublic.sol",
+        "./NFTCollectionURIStorage.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.3"
+      ],
+      "artifacts": [
+        "NFTFactory"
+      ]
+    },
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionWithBaseURI.sol": {
+      "lastModificationDate": 1641491476029,
+      "contentHash": "ff6bc7af552572068c088c106c1221eb",
+      "sourceName": "contracts/NFT/NFTCollectionWithBaseURI.sol",
+      "solcConfig": {
+        "version": "0.8.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/utils/Strings.sol",
+        "@openzeppelin/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.3"
+      ],
+      "artifacts": [
+        "NFTCollectionWithBaseURI"
+      ]
+    },
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionURIStoragePublic.sol": {
+      "lastModificationDate": 1641527255378,
+      "contentHash": "042f75d11c66d355de92aeb6a13dcda7",
+      "sourceName": "contracts/NFT/NFTCollectionURIStoragePublic.sol",
+      "solcConfig": {
+        "version": "0.8.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/utils/Strings.sol",
+        "@openzeppelin/contracts/utils/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.3"
+      ],
+      "artifacts": [
+        "NFTCollectionURIStoragePublic"
+      ]
+    },
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Test/WrappedERC20Token.sol": {
+      "lastModificationDate": 1641487082480,
+      "contentHash": "f9e0de8d85b4bba1f212322a20cc3e8e",
+      "sourceName": "contracts/Test/WrappedERC20Token.sol",
+      "solcConfig": {
+        "version": "0.8.3",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+        "@openzeppelin/contracts/access/Ownable.sol",
+        "@openzeppelin/contracts/utils/Context.sol",
+        "@openzeppelin/contracts/utils/math/SafeMath.sol"
+      ],
       "versionPragmas": [
         "0.8.3"
       ],
       "artifacts": [
-        "Roles"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/TotemNormalNFT.sol": {
-      "lastModificationDate": 1641487082480,
-      "contentHash": "0794c32d342c6c2b672a977d9b1ee973",
-      "sourceName": "contracts/TotemNormalNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "TotemNormalNFT"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1641488678850,
-      "contentHash": "b7811964d33f23b2d45ed3ebb76a4548",
-      "sourceName": "@openzeppelin/contracts/utils/Counters.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Counters"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/TotemEliteNFT.sol": {
-      "lastModificationDate": 1641487082480,
-      "contentHash": "1c612f8d1138ea82bd84a0cd0bcd4ad6",
-      "sourceName": "contracts/TotemEliteNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "TotemEliteNFT"
+        "WrappedERC20Token"
       ]
     },
     "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
@@ -885,10 +893,10 @@
         "IERC20Metadata"
       ]
     },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Test/WrappedERC20Token.sol": {
-      "lastModificationDate": 1641487082480,
-      "contentHash": "f9e0de8d85b4bba1f212322a20cc3e8e",
-      "sourceName": "contracts/Test/WrappedERC20Token.sol",
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Role/Operator.sol": {
+      "lastModificationDate": 1641487082476,
+      "contentHash": "a6551cfd127e1cf31f13006561f9f0b9",
+      "sourceName": "contracts/Role/Operator.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -920,22 +928,20 @@
         }
       },
       "imports": [
-        "@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
         "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol"
+        "./Roles.sol"
       ],
       "versionPragmas": [
         "0.8.3"
       ],
       "artifacts": [
-        "WrappedERC20Token"
+        "Operator"
       ]
     },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/SilverCommunityNFT.sol": {
+    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/Role/Roles.sol": {
       "lastModificationDate": 1641487082480,
-      "contentHash": "ed36cf977573d5b0bbedafdbaa442479",
-      "sourceName": "contracts/SilverCommunityNFT.sol",
+      "contentHash": "e54a292a891bd2fc9c99b6324aa98f57",
+      "sourceName": "contracts/Role/Roles.sol",
       "solcConfig": {
         "version": "0.8.3",
         "settings": {
@@ -966,400 +972,12 @@
           }
         }
       },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./Role/Operator.sol"
-      ],
+      "imports": [],
       "versionPragmas": [
-        "^0.8.3"
+        "0.8.3"
       ],
       "artifacts": [
-        "SilverCommunityNFT"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionWithBaseURI.sol": {
-      "lastModificationDate": 1641491476029,
-      "contentHash": "ff6bc7af552572068c088c106c1221eb",
-      "sourceName": "contracts/NFT/NFTCollectionWithBaseURI.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "NFTCollectionWithBaseURI"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionURIStorage.sol": {
-      "lastModificationDate": 1641491600000,
-      "contentHash": "ef500d7149f8d133807468a716b0c59e",
-      "sourceName": "contracts/NFT/NFTCollectionURIStorage.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "NFTCollectionURIStorage"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/node_modules/@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
-      "lastModificationDate": 1641488781716,
-      "contentHash": "94da923c22e9773af388607307182c80",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "../ERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721URIStorage"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionURIStoragePublic.sol": {
-      "lastModificationDate": 1641493951593,
-      "contentHash": "9b2cef206d6f8c6205664ed9c23b68d3",
-      "sourceName": "contracts/NFT/NFTCollectionURIStoragePublic.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "NFTCollectionURIStorage"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/GoldenCommunityNFT.sol": {
-      "lastModificationDate": 1641487082476,
-      "contentHash": "7dbd0e57b81cc515c642f9b47749ebb0",
-      "sourceName": "contracts/GoldenCommunityNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "GoldenCommunityNFT"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/DiamondCommunityNFT.sol": {
-      "lastModificationDate": 1641487082476,
-      "contentHash": "3ffa8736ddffef8f1e2e4c0837f62939",
-      "sourceName": "contracts/DiamondCommunityNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Strings.sol",
-        "@openzeppelin/contracts/utils/math/SafeMath.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "DiamondCommunityNFT"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/DefactorPassNFT.sol": {
-      "lastModificationDate": 1641487082472,
-      "contentHash": "cd35630844d0cdf0d4dda4402b77b398",
-      "sourceName": "contracts/DefactorPassNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "DefactorPassNFT"
-      ]
-    },
-    "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/BumperSkyLoungePassNFT.sol": {
-      "lastModificationDate": 1641487082472,
-      "contentHash": "e0c8cfbbed44faa5679d610413aa30c0",
-      "sourceName": "contracts/BumperSkyLoungePassNFT.sol",
-      "solcConfig": {
-        "version": "0.8.3",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-        "@openzeppelin/contracts/access/Ownable.sol",
-        "@openzeppelin/contracts/utils/Context.sol",
-        "@openzeppelin/contracts/utils/Counters.sol",
-        "./Role/Operator.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.3"
-      ],
-      "artifacts": [
-        "BumperSkyLoungePassNFT"
+        "Roles"
       ]
     }
   }

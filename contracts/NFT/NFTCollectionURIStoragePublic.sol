@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/utils/Context.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
-contract NFTCollectionURIStorage is ERC721URIStorage {
+contract NFTCollectionURIStoragePublic is ERC721URIStorage {
     
     using Strings for uint256;
 
