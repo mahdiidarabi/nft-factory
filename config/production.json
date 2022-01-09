@@ -1,0 +1,46 @@
+{
+  "addresses": {
+    "ipfsNode": "http://localhost:5001"
+  },
+  "uris": {
+    "communityNFT": "https://ipfs.io/ipns/k51qzi5uqu5dimucp24o6tiw1dks3q2onwz30q0u6qbfjbq8l6g1gy65ogwvac/"
+  },
+  "names": {
+    "communityNFT": "Totem Community NFT"
+  },
+  "symbols": {
+    "communityNFT": "TcNFT"
+  },
+  "communityNFT": {
+    "bumper":{
+      "baseUri": "",
+      "name": "BumperSkyLoungePass",
+      "symbol": "BuSLPNFT",
+      "description": "Bumper Sky Lounge Pass"
+    },
+    "owl": {
+      "baseUri": "https://ipfs.io/ipns/k51qzi5uqu5dimucp24o6tiw1dks3q2onwz30q0u6qbfjbq8l6g1gy65ogwvac/",
+      "name": "The Owl",
+      "symbol": "TcGONFT",
+      "description": "THE GOLDEN TILE OF THE EAGLE OWL"
+    },
+    "forest": {
+      "baseUri": "https://ipfs.io/ipns/k51qzi5uqu5dk6im11s46ub4i117k05vexa6z271os99imq8ees38btopxant7/",
+      "name": "The Forest",
+      "symbol": "TcFONFT",
+      "description": "The TotemFi Forest: Stake, Predict and Win"
+    },
+    "fox": {
+      "baseUri": "https://ipfs.io/ipns/k51qzi5uqu5dle31pl51fmvqjbe4mr9muz66qsphur02x407bfh6fmh4bdjld0/",
+      "name": "The Fox",
+      "description": "Fox Lake",
+      "symbol": "TcFXNFT"
+    },
+    "ghost": {
+      "baseUri": "",
+      "name": "Totem Ghost Fox NFT",
+      "description": "Ghost Fox",
+      "symbol": "TcGHNFT"
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "name": "bsc_testnet",
+  "chainId": "97",
+  "contracts": {
+    "NFTFactory": {
+      "address": "0x5705aB763B771b5F562013f348B471F7224f1214",
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "constructor"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "nftCollection",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "sybmol",
+              "type": "string"
+            }
+          ],
+          "name": "CollectionURIStorageCreated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "nftCollection",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "sybmol",
+              "type": "string"
+            }
+          ],
+          "name": "CollectionURIStoragePublicCreated",
+          "type": "event"
+        },
+        {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "nftCollection",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "sybmol",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "nftNumber",
+              "type": "uint256"
+            }
+          ],
+          "name": "CollectionWithBaseURICreated",
+          "type": "event"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name_",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_symbol_",
+              "type": "string"
+            }
+          ],
+          "name": "createNFTCollectionURIStorage",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name_",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_symbol_",
+              "type": "string"
+            }
+          ],
+          "name": "createNFTCollectionURIStoragePublic",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "_name_",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_symbol_",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "_baseURI_",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "_nftNumber_",
+              "type": "uint256"
+            }
+          ],
+          "name": "createNFTCollectionWithBaseURI",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]
+    }
+  }
+}

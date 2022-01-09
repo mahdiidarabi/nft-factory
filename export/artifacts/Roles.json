@@ -1,0 +1,54 @@
+{
+  "contractName": "Roles",
+  "sourceName": "contracts/Role/Roles.sol",
+  "abi": [],
+  "bytecode": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ba4d1c766b5c32f0e3f4d4303c107121d3bed1aa5f19bb9d0488d75387f3407e64736f6c63430008030033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220ba4d1c766b5c32f0e3f4d4303c107121d3bed1aa5f19bb9d0488d75387f3407e64736f6c63430008030033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "devdoc": {
+    "details": "Library for managing addresses assigned to a Role.",
+    "kind": "dev",
+    "methods": {},
+    "title": "Roles",
+    "version": 1
+  },
+  "evm": {
+    "bytecode": {
+      "generatedSources": [],
+      "linkReferences": {},
+      "opcodes": "PUSH1 0x56 PUSH1 0x37 PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH1 0x0 BYTE PUSH1 0x73 EQ PUSH1 0x2A JUMPI PUSH4 0x4E487B71 PUSH1 0xE0 SHL PUSH1 0x0 MSTORE PUSH1 0x0 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST ADDRESS PUSH1 0x0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xBA 0x4D SHR PUSH23 0x6B5C32F0E3F4D4303C107121D3BED1AA5F19BB9D0488D7 MSTORE8 DUP8 RETURN BLOCKHASH PUSH31 0x64736F6C634300080300330000000000000000000000000000000000000000 ",
+      "sourceMap": "147:900:18:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;147:900:18;;;;;;;;;;;;;;;;;"
+    },
+    "deployedBytecode": {
+      "generatedSources": [],
+      "immutableReferences": {},
+      "linkReferences": {},
+      "opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xBA 0x4D SHR PUSH23 0x6B5C32F0E3F4D4303C107121D3BED1AA5F19BB9D0488D7 MSTORE8 DUP8 RETURN BLOCKHASH PUSH31 0x64736F6C634300080300330000000000000000000000000000000000000000 ",
+      "sourceMap": "147:900:18:-:0;;;;;;;;"
+    },
+    "gasEstimates": {
+      "creation": {
+        "codeDepositCost": "17200",
+        "executionCost": "103",
+        "totalCost": "17303"
+      },
+      "internal": {
+        "add(struct Roles.Role storage pointer,address)": "infinite",
+        "has(struct Roles.Role storage pointer,address)": "infinite",
+        "remove(struct Roles.Role storage pointer,address)": "infinite"
+      }
+    },
+    "methodIdentifiers": {}
+  },
+  "metadata": "{\"compiler\":{\"version\":\"0.8.3+commit.8d00100c\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Library for managing addresses assigned to a Role.\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Roles\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Role/Roles.sol\":\"Roles\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Role/Roles.sol\":{\"content\":\"// SPDX-License-Identifier: UNLICENSED\\n\\npragma solidity 0.8.3;\\n\\n/**\\n * @title Roles\\n * @dev Library for managing addresses assigned to a Role.\\n */\\nlibrary Roles {\\n    struct Role {\\n        mapping(address => bool) bearer;\\n    }\\n\\n    /**\\n     * @dev Give an account access to this role.\\n     */\\n    function add(Role storage role, address account) internal {\\n        require(!has(role, account), \\\"Roles: account already has role\\\");\\n        role.bearer[account] = true;\\n    }\\n\\n    /**\\n     * @dev Remove an account's access to this role.\\n     */\\n    function remove(Role storage role, address account) internal {\\n        require(has(role, account), \\\"Roles: account does not have role\\\");\\n        role.bearer[account] = false;\\n    }\\n\\n    /**\\n     * @dev Check if an account has this role.\\n     * @return bool\\n     */\\n    function has(Role storage role, address account)\\n        internal\\n        view\\n        returns (bool)\\n    {\\n        require(account != address(0), \\\"Roles: account is the zero address\\\");\\n        return role.bearer[account];\\n    }\\n}\\n\",\"keccak256\":\"0xa311d042a2e04c2a8fca27083e735c25f447a4c24133e54970451e9e09520334\",\"license\":\"UNLICENSED\"}},\"version\":1}",
+  "storageLayout": {
+    "storage": [],
+    "types": null
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
