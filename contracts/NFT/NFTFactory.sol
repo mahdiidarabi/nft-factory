@@ -10,72 +10,72 @@ import "./NFTCollectionURIStoragePublic.sol";
 import "./NFTCollectionURIStorage.sol";
 
 
-contract NFTFactory {
+contract NFTFactory is Context {
 
     event CollectionWithBaseURICreated(
         address indexed nftCollection,
         string name,
-        string sybmol,
-        uint256 nftNumber
-    );
-
-    event CollectionURIStoragePublicCreated(
-        address indexed nftCollection,
-        string name,
         string sybmol
     );
 
-        event CollectionURIStorageCreated(
-        address indexed nftCollection,
-        string name,
-        string sybmol
-    );
+    // event CollectionURIStoragePublicCreated(
+    //     address indexed nftCollection,
+    //     string name,
+    //     string sybmol
+    // );
+
+    //     event CollectionURIStorageCreated(
+    //     address indexed nftCollection,
+    //     string name,
+    //     string sybmol
+    // );
     
 
     constructor() {
 
     }
 
-    function createNFTCollectionWithBaseURI(string memory _name_, string memory _symbol_, string memory _baseURI_, uint256 _nftNumber_) public returns(address) {
-        NFTCollectionWithBaseURI nftCollection = new NFTCollectionWithBaseURI(_name_, _symbol_, _baseURI_, _nftNumber_);
+    function createNFTCollectionWithBaseURI(string memory _name_, string memory _symbol_, string memory _baseURI_, uint256 nftCount) public returns(address) {
+        NFTCollectionWithBaseURI nftCollection = new NFTCollectionWithBaseURI(_name_, _symbol_, _baseURI_);
+
+        nftCollection.batchMint(_msgSender(), nftCount);
 
         address nftCollectionAddr = address(nftCollection);
 
         emit CollectionWithBaseURICreated(
             nftCollectionAddr,
             _name_,
-            _symbol_,
-            _nftNumber_
-        );
-
-        return nftCollectionAddr;
-    }
-
-    function createNFTCollectionURIStoragePublic(string memory _name_, string memory _symbol_) public returns(address) {
-        NFTCollectionURIStoragePublic nftCollection = new NFTCollectionURIStoragePublic(_name_, _symbol_);
-
-        address nftCollectionAddr = address(nftCollection);
-
-        emit CollectionURIStoragePublicCreated(
-            nftCollectionAddr,
-            _name_,
             _symbol_
         );
 
         return nftCollectionAddr;
     }
 
-    function createNFTCollectionURIStorage(string memory _name_, string memory _symbol_) public returns(address) {
-        NFTCollectionURIStorage nftCollection = new NFTCollectionURIStorage(_name_, _symbol_);
+    // function createNFTCollectionURIStoragePublic(string memory _name_, string memory _symbol_) public returns(address) {
+    //     NFTCollectionURIStoragePublic nftCollection = new NFTCollectionURIStoragePublic(_name_, _symbol_);
 
-        address nftCollectionAddr = address(nftCollection);
+    //     address nftCollectionAddr = address(nftCollection);
 
-        emit CollectionURIStorageCreated(
-            nftCollectionAddr,
-            _name_,
-            _symbol_
-        );
+    //     emit CollectionURIStoragePublicCreated(
+    //         nftCollectionAddr,
+    //         _name_,
+    //         _symbol_
+    //     );
 
-        return nftCollectionAddr;
-    }
+    //     return nftCollectionAddr;
+    // }
+
+    // function createNFTCollectionURIStorage(string memory _name_, string memory _symbol_) public returns(address) {
+    //     NFTCollectionURIStorage nftCollection = new NFTCollectionURIStorage(_name_, _symbol_);
+
+    //     address nftCollectionAddr = address(nftCollection);
+
+    //     emit CollectionURIStorageCreated(
+    //         nftCollectionAddr,
+    //         _name_,
+    //         _symbol_
+    //     );
+
+    //     return nftCollectionAddr;
+    // }
 }

@@ -572,8 +572,8 @@
       ]
     },
     "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTFactory.sol": {
-      "lastModificationDate": 1641527493442,
-      "contentHash": "c4efccb9a7172cd9cbc7e4a877a33bf7",
+      "lastModificationDate": 1641692980688,
+      "contentHash": "18326ebc3b20912f56fdf658fc29eb52",
       "sourceName": "contracts/NFT/NFTFactory.sol",
       "solcConfig": {
         "version": "0.8.3",
@@ -620,8 +620,8 @@
       ]
     },
     "/home/mahdi/workspace/src/github.com/mahdiidarabi/nft-factory/contracts/NFT/NFTCollectionWithBaseURI.sol": {
-      "lastModificationDate": 1641491476029,
-      "contentHash": "ff6bc7af552572068c088c106c1221eb",
+      "lastModificationDate": 1641692686452,
+      "contentHash": "4183b222094e62ca50104d8224e501cd",
       "sourceName": "contracts/NFT/NFTCollectionWithBaseURI.sol",
       "solcConfig": {
         "version": "0.8.3",

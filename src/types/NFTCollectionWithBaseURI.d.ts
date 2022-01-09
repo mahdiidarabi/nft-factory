@@ -24,9 +24,11 @@ interface NFTCollectionWithBaseURIInterface extends ethers.utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "baseURI()": FunctionFragment;
+    "batchMint(address,uint256)": FunctionFragment;
     "burn(uint256)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
+    "mint(address,uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
@@ -48,6 +50,10 @@ interface NFTCollectionWithBaseURIInterface extends ethers.utils.Interface {
   ): string;
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(functionFragment: "baseURI", values?: undefined): string;
+  encodeFunctionData(
+    functionFragment: "batchMint",
+    values: [string, BigNumberish]
+  ): string;
   encodeFunctionData(functionFragment: "burn", values: [BigNumberish]): string;
   encodeFunctionData(
     functionFragment: "getApproved",
@@ -56,6 +62,10 @@ interface NFTCollectionWithBaseURIInterface extends ethers.utils.Interface {
   encodeFunctionData(
     functionFragment: "isApprovedForAll",
     values: [string, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "mint",
+    values: [string, BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
@@ -101,6 +111,7 @@ interface NFTCollectionWithBaseURIInterface extends ethers.utils.Interface {
   decodeFunctionResult(functionFragment: "approve", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "baseURI", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "batchMint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "burn", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getApproved",
@@ -110,6 +121,7 @@ interface NFTCollectionWithBaseURIInterface extends ethers.utils.Interface {
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
@@ -222,6 +234,18 @@ export class NFTCollectionWithBaseURI extends Contract {
 
     "baseURI()"(overrides?: CallOverrides): Promise<[string]>;
 
+    batchMint(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "batchMint(address,uint256)"(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
     burn(
       tokenId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -253,6 +277,18 @@ export class NFTCollectionWithBaseURI extends Contract {
       operator: string,
       overrides?: CallOverrides
     ): Promise<[boolean]>;
+
+    mint(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
+
+    "mint(address,uint256)"(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
@@ -393,6 +429,18 @@ export class NFTCollectionWithBaseURI extends Contract {
 
   "baseURI()"(overrides?: CallOverrides): Promise<string>;
 
+  batchMint(
+    account: string,
+    nftCount: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "batchMint(address,uint256)"(
+    account: string,
+    nftCount: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
   burn(
     tokenId: BigNumberish,
     overrides?: Overrides & { from?: string | Promise<string> }
@@ -424,6 +472,18 @@ export class NFTCollectionWithBaseURI extends Contract {
     operator: string,
     overrides?: CallOverrides
   ): Promise<boolean>;
+
+  mint(
+    account: string,
+    id: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
+
+  "mint(address,uint256)"(
+    account: string,
+    id: BigNumberish,
+    overrides?: Overrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
@@ -558,6 +618,18 @@ export class NFTCollectionWithBaseURI extends Contract {
 
     "baseURI()"(overrides?: CallOverrides): Promise<string>;
 
+    batchMint(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "batchMint(address,uint256)"(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
     burn(tokenId: BigNumberish, overrides?: CallOverrides): Promise<void>;
 
     "burn(uint256)"(
@@ -586,6 +658,18 @@ export class NFTCollectionWithBaseURI extends Contract {
       operator: string,
       overrides?: CallOverrides
     ): Promise<boolean>;
+
+    mint(
+      account: string,
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
+
+    "mint(address,uint256)"(
+      account: string,
+      id: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<void>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -748,6 +832,18 @@ export class NFTCollectionWithBaseURI extends Contract {
 
     "baseURI()"(overrides?: CallOverrides): Promise<BigNumber>;
 
+    batchMint(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "batchMint(address,uint256)"(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
     burn(
       tokenId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -778,6 +874,18 @@ export class NFTCollectionWithBaseURI extends Contract {
       owner: string,
       operator: string,
       overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    mint(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
+
+    "mint(address,uint256)"(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
@@ -923,6 +1031,18 @@ export class NFTCollectionWithBaseURI extends Contract {
 
     "baseURI()"(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
+    batchMint(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "batchMint(address,uint256)"(
+      account: string,
+      nftCount: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
     burn(
       tokenId: BigNumberish,
       overrides?: Overrides & { from?: string | Promise<string> }
@@ -953,6 +1073,18 @@ export class NFTCollectionWithBaseURI extends Contract {
       owner: string,
       operator: string,
       overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    mint(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
+    ): Promise<PopulatedTransaction>;
+
+    "mint(address,uint256)"(
+      account: string,
+      id: BigNumberish,
+      overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;

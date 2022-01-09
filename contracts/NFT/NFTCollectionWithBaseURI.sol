@@ -13,18 +13,16 @@ contract NFTCollectionWithBaseURI is Ownable, ERC721 {
     using Strings for uint256;
 
     string public theBaseURI;
+    // string public constant NAME = "Totem Ghost Fox NFT";
+    // string public constant SYMBOL = "TGHNFT";
 
-    constructor(string memory _name_, string memory _symbol_, string memory _baseURI_, uint256 _nftNumber_) 
+    constructor(string memory _name_, string memory _symbol_, string memory _baseURI_) 
         ERC721(
             _name_,
             _symbol_
         ) 
     {
         theBaseURI = _baseURI_;
-
-        for (uint256 i = 0; i < _nftNumber_; i++) {
-            _mint(_msgSender(), i);
-        }
     }
 
     function tokenURI(uint256 tokenId) public view virtual override returns (string memory) {
@@ -45,29 +43,21 @@ contract NFTCollectionWithBaseURI is Ownable, ERC721 {
         return theBaseURI;
     }
 
-    // function addOperator(address account) public onlyOwner {
-    //     _addOperator(account);
-    // }
-
-    // function removeOperator(address account) public onlyOwner {
-    //     _removeOperator(account);
-    // }
-
     function setURI(string memory newURI) public onlyOwner {
         theBaseURI = newURI;
     }
 
-    // function mint(address account, uint256 id) public onlyOperator {
-    //     _mint(account, id);
-    // }
+    function mint(address account, uint256 id) public onlyOwner {
+        _mint(account, id);
+    }
 
-    // function batchMint(address account, uint256[] memory ids) public onlyOperator {
+    function batchMint(address account, uint256 nftCount) public onlyOwner {
 
-    //     for (uint256 i = 0; i < ids.length; i++) {
-    //         _mint(account, ids[i]);
-    //     }
+        for (uint256 i = 1; i < nftCount; i++) {
+            _mint(account, i);
+        }
         
-    // }
+    }
 
     function burn(uint256 tokenId) public {
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721: transfer caller is not owner nor approved");
