@@ -1,7 +1,7 @@
 {
-  "name": "totemfi-nft",
+  "name": "Nirovan-nft",
   "version": "1.0.0",
-  "description": "TotemFi NFT smart contracts",
+  "description": "Nirovan NFT smart contracts",
   "directories": {
     "test": "test"
   },
@@ -99,7 +99,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TotemFi/nft-minting-holders-collab.git"
+    "url": "git+https://github.com/mahdiidarabi/nft-factory.git"
   },
   "files": [
     "contracts",
@@ -112,9 +112,9 @@
   "types": "./dist/src/types/index.d.ts",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/TotemFi/nft-minting-holders-collab/issues"
+    "url": "https://github.com/mahdiidarabi/nft-factory/issues"
   },
-  "homepage": "https://totemfi.com/",
+  "homepage": "https://nirovan.com/",
   "optionalDependencies": {
     "fsevents": "^2.3.2"
   }
