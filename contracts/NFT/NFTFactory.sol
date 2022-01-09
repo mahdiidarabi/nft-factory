@@ -6,8 +6,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Context.sol";
 
 import "./NFTCollectionWithBaseURI.sol";
-import "./NFTCollectionURIStoragePublic.sol";
-import "./NFTCollectionURIStorage.sol";
+import "./NFTCollectionWithBaseURIWithoutJson.sol";
 
 
 contract NFTFactory is Context {
@@ -17,18 +16,6 @@ contract NFTFactory is Context {
         string name,
         string sybmol
     );
-
-    // event CollectionURIStoragePublicCreated(
-    //     address indexed nftCollection,
-    //     string name,
-    //     string sybmol
-    // );
-
-    //     event CollectionURIStorageCreated(
-    //     address indexed nftCollection,
-    //     string name,
-    //     string sybmol
-    // );
     
 
     constructor() {
@@ -51,31 +38,19 @@ contract NFTFactory is Context {
         return nftCollectionAddr;
     }
 
-    // function createNFTCollectionURIStoragePublic(string memory _name_, string memory _symbol_) public returns(address) {
-    //     NFTCollectionURIStoragePublic nftCollection = new NFTCollectionURIStoragePublic(_name_, _symbol_);
+    function createNFTCollectionWithBaseURIWithoutJson(string memory _name_, string memory _symbol_, string memory _baseURI_, uint256 nftCount) public returns(address) {
+        NFTCollectionWithBaseURIWithoutJson nftCollection = new NFTCollectionWithBaseURIWithoutJson(_name_, _symbol_, _baseURI_);
 
-    //     address nftCollectionAddr = address(nftCollection);
+        nftCollection.batchMint(_msgSender(), nftCount);
 
-    //     emit CollectionURIStoragePublicCreated(
-    //         nftCollectionAddr,
-    //         _name_,
-    //         _symbol_
-    //     );
+        address nftCollectionAddr = address(nftCollection);
 
-    //     return nftCollectionAddr;
-    // }
+        emit CollectionWithBaseURICreated(
+            nftCollectionAddr,
+            _name_,
+            _symbol_
+        );
 
-    // function createNFTCollectionURIStorage(string memory _name_, string memory _symbol_) public returns(address) {
-    //     NFTCollectionURIStorage nftCollection = new NFTCollectionURIStorage(_name_, _symbol_);
-
-    //     address nftCollectionAddr = address(nftCollection);
-
-    //     emit CollectionURIStorageCreated(
-    //         nftCollectionAddr,
-    //         _name_,
-    //         _symbol_
-    //     );
-
-    //     return nftCollectionAddr;
-    // }
+        return nftCollectionAddr;
+    }
 }
