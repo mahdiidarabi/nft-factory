@@ -1,6 +1,7 @@
 import { expect, use } from "chai"
 import { ethers } from "hardhat"
 import { Signer } from "ethers"
+import { Address } from "hardhat-deploy/dist/types"
 import { solidity, MockProvider } from "ethereum-waffle"
 
 import { NFTFactory } from "../src/types/NFTFactory"
@@ -15,9 +16,12 @@ import { NFTCollectionWithBaseURIWithoutJson__factory } from "../src/types/facto
 
 use(solidity)
 
-describe("TotemToken", async () => {
+describe("NFT-Factory", async () => {
     let signer: Signer
     let signer2: Signer
+
+    let signer2Addr: Address
+    let signer1Addr: Address
 
     let nftFactory: NFTFactory
     let nftCollectionWithBaseURI: NFTCollectionWithBaseURI
@@ -25,6 +29,10 @@ describe("TotemToken", async () => {
 
     beforeEach(async () => {
         [signer, signer2] = await ethers.getSigners()
+
+        signer2Addr = await signer2.getAddress()
+        signer1Addr = await signer.getAddress()
+
         nftFactory = await deployNFTFactory()
         nftCollectionWithBaseURI = await deployNFTCollectionWithBaseURI()
         nftCollectionWithBaseURIWithoutJson = await deployNFTCollectionWithBaseURIWithoutJson()
@@ -41,7 +49,7 @@ describe("TotemToken", async () => {
         const nft = await nftFactory.deploy(
             "name_1",
             "symbol_1",
-            "basrURI_1"
+            "basrURI_1/"
         )
         return nft
     }
@@ -51,7 +59,7 @@ describe("TotemToken", async () => {
         const nft = await nftFactory.deploy(
             "name_2",
             "symbol_2",
-            "basrURI_2"
+            "basrURI_2/"
         )
         return nft
     }
@@ -61,7 +69,7 @@ describe("TotemToken", async () => {
             nftFactory.createNFTCollectionWithBaseURI(
                 "name_3",
                 "symbol_3",
-                "basrURI_3",
+                "basrURI_3/",
                 10
             )
           ).to.emit(nftFactory, "CollectionWithBaseURICreated");
@@ -72,9 +80,49 @@ describe("TotemToken", async () => {
             nftFactory.createNFTCollectionWithBaseURI(
                 "name_4",
                 "symbol_4",
-                "basrURI_4",
+                "basrURI_4/",
                 10
             )
           ).to.emit(nftFactory, "CollectionWithBaseURICreated");
+    })
+
+    it("mint json NFT collection", async () => {
+        await expect(
+            nftCollectionWithBaseURI.mint(
+                signer2Addr,
+                20
+            )
+          ).to.emit(nftCollectionWithBaseURI, "Transfer");
+    })
+
+    it("mint NFT collection without json", async () => {
+        await expect(
+            nftCollectionWithBaseURIWithoutJson.mint(
+                signer2Addr,
+                20
+            )
+          ).to.emit(nftCollectionWithBaseURIWithoutJson, "Transfer");
+    })
+
+    it("batch mint json NFT collection", async () => {
+
+        await nftCollectionWithBaseURI.batchMint(signer1Addr, 10)
+
+        expect(
+            await nftCollectionWithBaseURI.tokenURI(
+                5
+            )
+          ).to.equal("basrURI_1/5.json");
+    })
+
+    it("batch mint NFT collection without json", async () => {
+
+        await nftCollectionWithBaseURIWithoutJson.batchMint(signer1Addr, 10)
+
+        expect(
+            await nftCollectionWithBaseURIWithoutJson.tokenURI(
+                5
+            )
+          ).to.equal("basrURI_2/5");
     })
 })
